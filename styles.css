@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://www.transparenttextures.com/patterns/camo-rough.png'); /* Камуфляжный фон */
+    background-size: cover;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2f2f2f;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+h1, h2 {
+    color: #f4d03f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: #f4d03f;
+    font-weight: bold;
+}
+
+input[type='number'], select, input[type='text'] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #2d2d2d;
+    color: white;
+    font-size: 16px;
+}
+
+button {
+    background-color: #3e8e41;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45aaf2;
+}
+
+.result-box {
+    background-color: #45aaf2;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-links button {
+    padding: 15px;
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    color: #f4d03f;
+    width: 32%;
+}
+
+.tab-links button.active {
+    background-color: #3e8e41;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .tab-links {
+        display: block;
+    }
+
+    .tab-links button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    input[type='number'], select, input[type='text'] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

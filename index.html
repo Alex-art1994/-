@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет расхода топлива и планирование маршрута</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS -->
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Расчет расхода топлива и планирование маршрута</h1>
+
+        <!-- Вкладки для переключения между разделами -->
+        <div class="tab-links">
+            <button class="tab-link active" data-tab="calculator">Калькулятор расхода топлива</button>
+            <button class="tab-link" data-tab="routePlan">Планирование маршрута</button>
+            <button class="tab-link" data-tab="addVehicle">Добавить автомобиль</button>
+        </div>
+
+        <!-- Контент вкладки "Калькулятор расхода топлива" -->
+        <div id="calculator" class="tab-content active">
+            <h2>Калькулятор расхода топлива</h2>
+            <label for="vehicleType">Тип автомобиля:</label>
+            <select id="vehicleType">
+                <option value="КамАЗ-5350">КамАЗ-5350 (46 л/100 км)</option>
+                <option value="КамАЗ-5511">КамАЗ-5511 (41 л/100 км)</option>
+                <option value="КамАЗ-4310">КамАЗ-4310 (46 л/100 км)</option>
+                <option value="КамАЗ-53949">КамАЗ-53949 (40,2 л/100 км)</option>
+                <option value="Урал-4320">Урал-4320 (44,5 л/100 км)</option>
+                <option value="УАЗ-3163-103">УАЗ-3163-103 (16,4 л/100 км)</option>
+                <option value="УАЗ-3962">УАЗ-3962 (17,5 л/100 км)</option>
+                <option value="ГАЗ-233014">ГАЗ-233014 (Тигр) (25 л/100 км)</option>
+                <option value="ГАЗ-233115">ГАЗ-233115 (Тигр) (33 л/100 км)</option>
+                <option value="Volkswagen 7HC Caravella">Volkswagen 7HC Caravella (10,2 л/100 км)</option>
+                <option value="Титан">Титан (40,2 л/100 км)</option>
+                <option value="Феникс">Феникс (40,2 л/100 км)</option>
+                <option value="Урал-2-оси">Урал 2 оси (40 л/100 км)</option>
+                <option value="КамАЗ-63501">КамАЗ-63501 (62 л/100 км)</option>
+            </select>
+
+            <label for="startMileage">Начальный пробег:</label>
+            <input type="number" id="startMileage" required>
+
+            <label for="endMileage">Конечный пробег:</label>
+            <input type="number" id="endMileage" required>
+
+            <label for="engineHours">Количество моточасов:</label>
+            <input type="number" id="engineHours" value="0" required>
+
+            <label for="engineFuel">Расход топлива за 1 моточас (л):</label>
+            <input type="number" id="engineFuel" value="0" required>
+
+            <label for="percentage">Процентная надбавка:</label>
+            <input type="range" id="percentage" min="-50" max="50" step="5" value="0">
+            <span id="percentageValue">0%</span>
+
+            <button id="calculateBtn">Рассчитать расход топлива</button>
+            <div id="result" class="result-box"></div>
+        </div>
+
+        <!-- Контент вкладки "Планирование маршрута" -->
+        <div id="routePlan" class="tab-content">
+            <h2>Планирование маршрута</h2>
+            <label for="distance">Расстояние (км):</label>
+            <input type="number" id="distance" required>
+
+            <label for="tankVolume">Объем бака (л):</label>
+            <input type="number" id="tankVolume" value="295" required>
+
+            <label for="vehicleTypePlan">Тип автомобиля:</label>
+            <select id="vehicleTypePlan">
+                <option value="КамАЗ-5350">КамАЗ-5350 (46 л/100 км)</option>
+                <option value="КамАЗ-5511">КамАЗ-5511 (41 л/100 км)</option>
+                <option value="КамАЗ-4310">КамАЗ-4310 (46 л/100 км)</option>
+                <option value="КамАЗ-53949">КамАЗ-53949 (40,2 л/100 км)</option>
+                <option value="Урал-4320">Урал-4320 (44,5 л/100 км)</option>
+                <option value="УАЗ-3163-103">УАЗ-3163-103 (16,4 л/100 км)</option>
+                <option value="УАЗ-3962">УАЗ-3962 (17,5 л/100 км)</option>
+                <option value="ГАЗ-233014">ГАЗ-233014 (Тигр) (25 л/100 км)</option>
+                <option value="ГАЗ-233115">ГАЗ-233115 (Тигр) (33 л/100 км)</option>
+                <option value="Volkswagen 7HC Caravella">Volkswagen 7HC Caravella (10,2 л/100 км)</option>
+                <option value="Титан">Титан (40,2 л/100 км)</option>
+                <option value="Феникс">Феникс (40,2 л/100 км)</option>
+                <option value="Урал-2-оси">Урал 2 оси (40 л/100 км)</option>
+                <option value="КамАЗ-63501">КамАЗ-63501 (62 л/100 км)</option>
+            </select>
+
+            <button id="planRouteBtn">Планирование маршрута</button>
+            <h3 id="routeResult" class="result-box"></h3>
+        </div>
+
+        <!-- Контент вкладки "Добавить автомобиль" -->
+        <div id="addVehicle" class="tab-content">
+            <h2>Добавить новый автомобиль</h2>
+            <label for="newVehicleName">Название автомобиля:</label>
+            <input type="text" id="newVehicleName" required>
+
+            <label for="newVehicleConsumption">Расход топлива (л/100 км):</label>
+            <input type="number" id="newVehicleConsumption" required>
+
+            <button id="addVehicleBtn">Добавить автомобиль</button>
+        </div>
+
+    </div>
+
+    <script src="scripts.js"></script> <!-- Подключаем JS -->
+</body>
+</html>
