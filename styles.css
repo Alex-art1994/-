@@ -106,10 +106,7 @@ button:hover {
     display: block;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 24px;
-    }
+
 
     h2 {
         font-size: 20px;
@@ -132,5 +129,28 @@ button:hover {
     button {
         font-size: 14px;
         padding: 10px;
+    }
+}
+
+
+    input[type='number'], select, input[type='text'] {
+        width: 90%;
+    }
+
+    
+
+        input[type='number'], select, input[type='text'] {
+            width: 60% !important;
+        }
+    }
+
+
+@media (max-width: 768px) {
+    .tab-links button {
+        font-size: 14px;
+    }
+
+    input[type='number'], select, input[type='text'] {
+        width: 45% !important;
     }
 }
